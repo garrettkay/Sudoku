@@ -1,34 +1,16 @@
-import pygame
+boardList = [2,5,0,0,0,3,0,9,1,3,0,9,0,0,0,7,2,0,0,0,1,0,0,6,3,0,0,0,0,0,0,6,8,0,0,3,0,1,0,0,4,0,0,0,0,6,0,3,0,0,0,0,5,0,1,3,2,0,0,0,0,7,0,0,0,0,0,0,4,0,6,0,7,6,4,0,1,0,0,0,0]
+board = []
+for i in range(9):
+	tempList = []
+	for j in range(9):	
+		tempList.append(boardList[j])	
+	board.append(tempList)
+	for k in range(9):
+		boardList.pop(0)
 
-pygame.init()
-screen = pygame.display.set_mode([500,500])
-pygame.display.set_caption("SudokuSolver")
-
-def pygamePrint(text,pos,size,font,color,aa):
-	if text == None:
-		screen.blit(pygame.font.SysFont("Arial",12).render("New text box",False,(0,0,0)),(0,0))
-		return
-	if pos == None:
-		screen.blit(pygame.font.SysFont("Arial",12).render(text,False,(0,0,0)),(0,0))
-		return
-	if size == None:
-		screen.blit(pygame.font.SysFont("Arial",12).render(text,False,(0,0,0)),pos)
-		return
-	if font == None:
-		screen.blit(pygame.font.SysFont("Arial",size).render(text,False,(0,0,0)),pos)
-		return
-	if color == None:
-		screen.blit(pygame.font.SysFont(font,size).render(text,False,(0,0,0)),pos)
-		return
-	if aa == None:
-		screen.blit(pygame.font.SysFont(font,size).render(text,False,color),pos)
-		return
-	screen.blit(pygame.font.SysFont(font,size).render(text,aa,color),pos)
-
-pygamePrint("Hello World!",(100,100),24,"Comic Sans MS",(255,0,0),True)
-while True:
-	for event in pygame.event.get():
-		if event.type == pygame.QUIT:
-			pygame.quit()
-			quit()
-		pygame.display.update()
+def boardPrint(b):
+	for row in range(9):
+		print (b[row])
+	print ("")
+	
+boardPrint(board)
