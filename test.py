@@ -1,16 +1,22 @@
-boardList = [2,5,0,0,0,3,0,9,1,3,0,9,0,0,0,7,2,0,0,0,1,0,0,6,3,0,0,0,0,0,0,6,8,0,0,3,0,1,0,0,4,0,0,0,0,6,0,3,0,0,0,0,5,0,1,3,2,0,0,0,0,7,0,0,0,0,0,0,4,0,6,0,7,6,4,0,1,0,0,0,0]
+import copy
 board = []
-for i in range(9):
-	tempList = []
-	for j in range(9):	
-		tempList.append(boardList[j])	
-	board.append(tempList)
-	for k in range(9):
-		boardList.pop(0)
-
-def boardPrint(b):
-	for row in range(9):
-		print (b[row])
-	print ("")
-	
-boardPrint(board)
+def boardSet(boardRawInput):
+	if isinstance(boardRawInput, str) and len(boardRawInput) == 81:
+		board.clear()
+		for i in range(9):
+			tempList = []
+			for j in range(9):
+				tempList.append(int(boardRawInput[i * 9 + j]))
+			board.append(tempList)
+	elif isinstance(boardRawInput, list):
+		if isinstance(boardRawInput[0], int) and len(boardRawInput) == 81:
+			board.clear()
+			for i in range(9):
+				tempList = []
+				for j in range(9):
+					tempList.append(boardRawInput[j])
+				board.append(tempList)
+		elif isinstance(boardRawInput[0], list) and len(boardRawInput) == 9 and len(boardRawInput[0]) == 9:
+			board.deepcopy(boardRawInput)
+		else:
+			return False

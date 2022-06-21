@@ -1,3 +1,29 @@
+# for input board in string
+""""
+boardString = "000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+board = []
+for i in range(9):
+	tempList = []
+	for j in range(9):
+		tempList.append(int(boardString[i * 9 + j]))
+	board.append(tempList)
+"""
+
+# for input board in list
+"""
+boardList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+board = []
+for i in range(9):
+	tempList = []
+	for j in range(9):	
+		tempList.append(boardList[j])	
+	board.append(tempList)
+	for k in range(9):
+		boardList.pop(0)
+"""
+
+# for input board in nested lists
+"""
 board      =   [[0,0,0,  0,0,0,  0,0,0],
 				[0,0,0,  0,0,0,  0,0,0],
 				[0,0,0,  0,0,0,  0,0,0],
@@ -9,3 +35,4 @@ board      =   [[0,0,0,  0,0,0,  0,0,0],
 				[0,0,0,  0,0,0,  0,0,0],
 				[0,0,0,  0,0,0,  0,0,0],
 				[0,0,0,  0,0,0,  0,0,0]]
+"""
