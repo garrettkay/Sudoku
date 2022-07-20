@@ -59,9 +59,7 @@ def cellSolve():
 	for row in range(9):
 		for col in range(9):
 			if board[row][col] == 0 and len(boardPoss[row][col]) == 1:
-				board[row][col]=boardPoss[row][col][0]
-				boardPoss[row][col].clear()
-				boardPoss[row][col].append(board[row][col])
+				board[row][col] = boardPoss[row][col][0]
 def rowSolve():
 	for num in range(1,10):
 		for r in range(9):
